@@ -28,3 +28,5 @@ asset.Location = "Home Office";
 Console.WriteLine($"After change: {asset}"); // I changed location to home office here
 
 db.SaveChanges();
+
+// a
