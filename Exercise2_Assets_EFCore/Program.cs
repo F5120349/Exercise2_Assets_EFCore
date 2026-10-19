@@ -13,3 +13,8 @@ using var db = new AssetsDbContext();
 var assets = db.Assets.ToList();
 
 displayAssets(assets);
+
+var newAsset = new Assets("Printer", "Office", new DateOnly(2023, 3, 20), true, 500.00m);
+db.Assets.Add(newAsset);
+
+db.SaveChanges();
