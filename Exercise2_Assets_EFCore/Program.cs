@@ -14,7 +14,17 @@ var assets = db.Assets.ToList();
 
 displayAssets(assets);
 
-var newAsset = new Assets("Printer", "Office", new DateOnly(2023, 3, 20), true, 500.00m);
-db.Assets.Add(newAsset);
+//var newAsset = new Assets("Printer", "Office", new DateOnly(2023, 3, 20), true, 500.00m);
+//db.Assets.Add(newAsset);
+
+//db.SaveChanges();
+
+var asset = db.Assets
+    .Where(a => a.Name == "Laptop")
+    .SingleOrDefault();
+
+Console.WriteLine($"Before update: {asset}");
+asset.Location = "Home Office";
+Console.WriteLine($"After change: {asset}"); // I changed location to home office here
 
 db.SaveChanges();
