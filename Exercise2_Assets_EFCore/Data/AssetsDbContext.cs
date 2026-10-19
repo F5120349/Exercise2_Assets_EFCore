@@ -18,6 +18,13 @@ namespace Exercise2_Assets_EFCore.Data
 
         public DbSet<Assets> Assets => Set<Assets>();
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+
+            optionsBuilder.UseSqlite($"Data Source={DbPath}");
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
